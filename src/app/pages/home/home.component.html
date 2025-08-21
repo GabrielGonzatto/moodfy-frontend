@@ -1,0 +1,91 @@
+<div class="logo entrada">
+  <img src="../../../../assets/images/logo.png" alt="Logo">
+</div>
+
+<div class="playlist">
+  <div class="info entrada" *ngIf="musicas.length === 0 && loadingPlaylist === false">
+    <h3>Sua playlist será gerada aqui!</h3>
+    <p>
+      Preencha o prompt com sentimentos, estilos, bandas, genêros e iremos gerar
+      sua playlist.
+    </p>
+  </div>
+
+  <div class="loading entrada" *ngIf="loadingPlaylist === true">
+    <h3 style="text-align: center;">Sua playlist esta sendo gerada!</h3>
+    <span class="loader"></span>
+  </div>
+
+  <div class="musicas entrada" *ngIf="musicas.length !== 0">
+    <h3>Sua Playlist</h3>
+    <table class="table align-middle mb-0">
+      <tbody *ngFor="let musica of musicas">
+        <tr>
+          <td>
+            <img
+              [src]="musica.albumCover"
+              alt="{{ musica.titulo }}"
+              style="width: 55px; height: 55px"
+            />
+          </td>
+          <td>
+            <div style="text-align: start">
+              <p class="fw-normal mb-1">
+                <a
+                  target="_blank"
+                  [href]="musica.linkMusica"
+                  title="Ir para a música"
+                >
+                  {{ musica.titulo }}
+                </a>
+              </p>
+              <p class="text-muted mb-0">
+                <a
+                  target="_blank"
+                  [href]="musica.linkArtista"
+                  title="Ir para o artista"
+                >
+                  {{ musica.artista }}
+                </a>
+              </p>
+            </div>
+          </td>
+          <td>
+            {{ musica.duracao }}
+          </td>
+          <td>
+            <audio [src]="musica.preview" controls preload="none"></audio>
+          </td>
+          <td>
+            <button
+              (click)="gerarMusica(musica.id)"
+              type="button"
+              class="btn btn-link btn-sm btn-rounded"
+              [disabled]="loadingMusica"
+            >
+              Regerar música
+            </button>
+          </td>
+          <td>
+            <button
+              (click)="deletarMusica(musica.id)"
+              type="button"
+              class="btn btn-link btn-sm btn-rounded red"
+            >
+              Deletar música
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<p class="prompt-tittle">Como você quer sua playlist?</p>
+
+<div class="prompt">
+  <textarea [(ngModel)]="prompt" [disabled]="loadingPlaylist"></textarea>
+
+  <button (click)="gerarPlaylist()" [disabled]="!prompt">
+    <img src="../../../../assets/images/enviar.png" alt="Enviar" />
+  </button>
+</div>

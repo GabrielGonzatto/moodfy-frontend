@@ -1,0 +1,208 @@
+/* ===== Logo ===== */
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+}
+
+/* ===== Prompt Tittle ===== */
+.prompt-tittle {
+  position: fixed;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f0f8ff;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* ===== Prompt ===== */
+.prompt {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+
+  textarea {
+    width: 100%;
+    padding-left: 15px;
+    border: none;
+    border-radius: 20px;
+    resize: none;
+    background-color: rgba(20, 20, 20, 0.85);
+    color: #f0f8ff;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4);
+  }
+
+  button {
+    position: absolute;
+    top: 46%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 2px;
+    background-color: #f0f8ff;
+  }
+
+  button:disabled {
+    opacity: 0.6;
+  }
+
+  img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* ===== Playlist ===== */
+.playlist {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  width: 80%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 30px;
+  background-color: rgba(20, 20, 20, 0.85);
+  color: #f0f8ff;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Info, Musicas e Loading ===== */
+.info,
+.musicas,
+.loading {
+  text-align: center;
+}
+
+.musicas {
+  width: 90%;
+  max-height: 85%;
+  overflow: scroll;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Tabela ===== */
+table {
+  color: #f0f8ff;
+
+  a {
+    color: #f0f8ff;
+    text-decoration: none;
+  }
+
+  button {
+    color: #f0f8ff;
+  }
+
+  button:hover {
+    color: #575962;
+  }
+}
+
+.red:hover {
+  color: #f0f8ff !important;
+  background-color: red;
+}
+
+audio {
+  width: 100px;
+  border-radius: 20px;
+}
+
+.album-cover {
+  width: 55px;
+  height: 55px;
+  border-radius: 8px;
+}
+
+/* ===== Loader ===== */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+/* ===== Animações ===== */
+.entrada {
+  animation: entrada 0.5s ease forwards;
+}
+
+@keyframes entrada {
+  0% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Responsividade ===== */
+@media (max-height: 1000px) {
+  .logo img {
+    height: 60px;
+    width: auto;
+  }
+}
+
+@media (max-height: 850px) {
+  .logo img {
+    height: 50px;
+    width: auto;
+  }
+
+  .logo {
+    top: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+
+  h3 {
+    font-size: 20px;
+    margin: 10px;
+  }
+
+  p {
+    font-size: 12px;
+    margin: 10px;
+  }
+}
